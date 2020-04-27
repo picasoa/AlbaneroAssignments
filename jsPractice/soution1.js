@@ -177,14 +177,140 @@ alert( alert(1) || 2 || alert(3) );
 1 
 and then 
 2
+
 //task3  
 alert( 1 && null && 2 );
 
 //return null 
 
-
+//task4 
 alert( alert(1) && alert(2) );
 
 // first prints 1
 
-//return undefined at he end 	
+//return undefined at he end 
+
+
+alert( null || 2 && 3 || 4 );	
+
+//returns 3 
+
+// Write an “if” condition to check that age is between 14 and 90 inclusively.
+
+// “Inclusively” means that age can reach the edges 14 or 90.
+
+let age = prompt("What's your age");
+
+if (age > 14 && age< 90)
+{
+	console.log("in range");
+}
+
+if (!(age > 14 && age< 90))
+{
+	console.log("out of the range");
+}
+
+
+
+
+// Which of these alerts are going to execute?
+
+// What will the results of the expressions be inside if(...)?
+
+/1./ if (-1 || 0) alert( 'first' );
+/2./ if (-1 && 0) alert( 'second' );
+/3./ if (null || -1 && 1) alert( 'third' );
+
+//Answers 
+
+1. will run because -1 is a truthly value
+2. will not run because 0 is a falsy value
+3. will run cause -1 and 1  both are truthly balues and the or will result in tur value printing third
+	
+
+
+
+// final task lofgical operator
+let userName = prompt("Name please ");
+
+if (userName == 'Admin') {
+
+  let pass = prompt('Password?');
+
+  if (pass == 'TheMaster') {
+
+    alert( 'Welcome!' );
+  } 
+  else if 
+  	(pass == '' || pass == null) {
+    
+    alert( 'Canceled' );
+  } 
+  else {
+    
+    alert( 'Wrong password' );
+  }
+
+} 
+else if (userName == '' || userName == null) {
+	 	 alert( 'Canceled' );
+} 
+else {
+ 	 alert( "I dont know you" );
+}
+
+
+// Class task 1
+class Clock {
+
+  constructor({ template }) {
+
+    this.template = template;
+
+  }
+
+  render() {
+    let date = new Date();
+
+    let hours = date.getHours();
+    if (hours < 10) hours = '0' + hours;
+
+    let mins = date.getMinutes();
+    if (mins < 10) mins = '0' + mins;
+
+    let secs = date.getSeconds();
+    if (secs < 10) secs = '0' + secs;
+
+    let output = this.template
+      .replace('h', hours)
+      .replace('m', mins)
+      .replace('s', secs);
+
+    console.log(output);
+  }
+
+  stop() {
+    clearInterval(this.timer);
+  }
+
+  start() {
+    this.render();
+    this.timer = setInterval(() => this.render(), 1000);
+  }
+}
+
+
+let clock = new Clock({template: 'h:m:s'});
+clock.start();
+
+
+
+
+
+
+
+
+
+
+
