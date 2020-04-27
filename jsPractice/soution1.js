@@ -117,6 +117,8 @@ if ("0") {
 }
 
 
+//-----------------------------------------------------------
+
 //if else condition 
 
 let name = prompt("what is the official name of js");
@@ -129,6 +131,7 @@ if( name === "ECMAScript")
 	console.log("You don't know? “ECMAScript”!");
 }
 
+//----------------------------------------------------------------
 
 let number = prompt("enter a number");
 
@@ -143,3 +146,45 @@ else{
 
 	console.log("0");
 }
+
+
+
+//---------------------------------------------------------------
+
+
+//Rewrite this if using the conditional operator '?':
+
+let result  = a + b < 4 ? "below":"Over";
+
+//if else task 5 
+
+
+let login  = prompt("Who is logging in");
+
+let message = login=='Employee'?'Hello': login=='Employee'?'Greetings':login == ''?'No login':'';
+
+console.log(message);
+
+
+//logical operators task 1
+alert( null || 2 || undefined );
+
+2
+//task 2
+alert( alert(1) || 2 || alert(3) );
+
+
+1 
+and then 
+2
+//task3  
+alert( 1 && null && 2 );
+
+//return null 
+
+
+alert( alert(1) && alert(2) );
+
+// first prints 1
+
+//return undefined at he end 	
