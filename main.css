@@ -1,0 +1,18 @@
+
+div{
+		/*border: 2px	solid black;*/
+}
+body {
+	background:#e0e0e0;
+}
+
+#form-box{
+	box-shadow:0px 0px 10px rgba(0,0,0,1);
+	background: transparent;
+}
+#count{
+	display: none;
+}
+#passHelp{
+	display:none;
+}
