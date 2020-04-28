@@ -397,7 +397,7 @@ let rabbit = new Rabbit("Rab");
 alert( rabbit.hasOwnProperty('name') ); 
 
 
-// instance of task 
+// this is called prototypical inheritance  which makes it print true 
 function A() {}
 function B() {}
 
@@ -406,3 +406,145 @@ A.prototype = B.prototype = {};
 let a = new A();
 
 alert( a instanceof B ); // true
+
+
+
+
+function f() {
+  try {
+    alert('start');
+    return "result";
+  } catch (e) {
+  } finally {
+    console.log("clean");
+  }
+}
+
+f(); 
+
+//-----------------------------------------------------------------
+
+class FormatError extends SyntaxError {
+  constructor(m) {
+    super(m);
+    this.name = this.constructor.name;
+  }
+}
+
+let err = new FormatError("formatting error");
+
+alert( err.message );
+alert( err.name ); 
+alert( err.stack ); 
+
+alert( err instanceof SyntaxError ); 
+
+//------------------------------------------------------------------
+
+
+///Promisis
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+delay(3000).then(() => alert('runs after 3 seconds'));
+
+//-------------------------------------------------------
+
+promise.then(f1).catch(f2);
+Versus:
+
+promise.then(f1, f2);
+// these is better error handelling in the first promise block
+
+//-----------------------------------------------------------
+
+new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    throw new Error("Whoops!");
+  }, 1000);
+}).catch(alert);
+
+
+
+// the catch black will not be executed because the error is thrown implicitly 
+
+//-------------------------------------------------------------------------------x
+
+
+
+async function loadJson(url) { 
+  let response = await fetch(url);
+
+  if (response.status == 200) {
+    let json = await response.json(); 
+    return json;
+  }
+
+  throw new Error(response.status);
+}
+
+loadJson('object.json')
+  .catch(alert); 
+
+//-----------------------------------------------------------------------------
+
+class HttpError extends Error {
+  constructor(response) {
+    super(`${response.status} for ${response.url}`);
+    this.name = 'HttpError';
+    this.response = response;
+  }
+}
+
+async function loadJson(url) {
+  let response = await fetch(url);
+  if (response.status == 200) {
+    return response.json();
+  } else {
+    throw new HttpError(response);
+  }
+}
+
+// Ask for a user name until github returns a valid user
+
+async function demoGithubUser() {
+
+  let user;
+  while(true) {
+    let name = prompt("Enter a name?", "iliakan");
+
+    try {
+      user = await loadJson(`https://api.github.com/users/${name}`);
+      break; 
+    } catch(err) {
+      if (err instanceof HttpError && err.response.status == 404) {
+        alert("No such user, please reenter.");
+      } else {
+        throw err;
+      }
+    }
+  }
+  alert(`Full name: ${user.name}.`);
+  return user;
+}
+
+demoGithubUser();
+
+//------------------------------------------------------------------
+
+
+let map = new Map();
+
+map.set("name", "John");
+
+let keys = Array.from(map.keys());
+
+keys.push("more");
+
+alert(keys); 
+
+
+//------------------------------------------------------------------
+
