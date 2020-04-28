@@ -16,21 +16,17 @@
     </head>
     <body>
     	<p>mimmic of the  async nature of js </p>
-    	<button onclick="runLong()">Run the long running process</button>
-    	<button onclick="sayHi()">alert</button>
+    	<button onclick="run()">click me  and look into the console</button>
     	<button onclick="()">alert</button>
         <script>
-        	function runLong( )
-				{
-					var i = 0;
-					while( i < 99999999999999){
- 					i+=1;
-					}
-					alert('done');
-				}
-			function sayHi(){
-				alert("Hi!");
-			}
+        	function run{
+            console.log('a');
+            
+            setTimeout(function(){
+                console.log('b');
+                }, 1000);
+            console.log('c');
+        }
 
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
