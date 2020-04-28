@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+    	<p>mimmic of the  async nature of js </p>
+    	<button onclick="runLong()">Run the long running process</button>
+    	<button onclick="sayHi()">alert</button>
+    	<button onclick="sayHi()">alert</button>
+        <script>
+        	function runLong( )
+				{
+					var i = 0;
+
+					while( i < 99999999999999){
+ 					i+=1;
+					}
+					alert('done');
+				}
+
+			function sayHi(){
+				alert("Hi!");
+			}
+
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    </body>
+</html>
